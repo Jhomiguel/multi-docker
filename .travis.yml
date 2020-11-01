@@ -6,7 +6,7 @@ before_install:
   - docker build -t jhomiguel/react-test -f ./client/Dockerfile.dev ./client
 
 scripts:
-  - docker run jhomiguel/react-test npm run test -- --coverage
+  - docker run -e CI=true jhomiguel/react-test npm run test -- --coverage
 
 after_success:
   - docker build -t jhomiguel/complex-client ./client
